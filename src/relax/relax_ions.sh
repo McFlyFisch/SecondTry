@@ -5,6 +5,7 @@
 # there are no more ionic steps performed.
 
 # WISHLIST
+# - More cake
 # - More error handling(esp. for missing files)
 # - recognize when something weird happens (e.g phase transition)
 # - implement what people online say are the best parameters fo monitor during relaxation
