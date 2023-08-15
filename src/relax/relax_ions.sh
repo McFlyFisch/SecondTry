@@ -1,9 +1,5 @@
 #! /usr/bin/bash
 
-# HISTORY
-# 16 Feb 2023: Written, based on older script but very different approach
-# 01 Aug 2023: Split into smaller modules instead of one big script for more flexibility
-
 # DESCRIPTION
 # This script takes a given structure and relaxes its ionic positions, optionally also the cell shape, until
 # there are no more ionic steps performed.
@@ -38,6 +34,7 @@ ENCUT=$1
 KPTS_N=$2
 MAX_REL=$3		# Stop if one step takes more than this many relaxation steps
 EDIFFG=$4		# e.g. -1E-02 for better accuracy in final run
+TIME=$5
 
 #------------------------------------------------------------------------------------------------------------------
 echo "--- Ionic Relaxation started"
