@@ -1,0 +1,28 @@
+SYSTEM = TEMP_FILE
+
+Start parameters for this Run
+  PREC    =  Accurate    # specifies precision mode, sets ENCUT, NGX,Y,Z, NGXF,YF,ZF, ROPT (recom.) 
+
+Electronic optimization
+  ENCUT   =  300 eV      # specifies the cutoff energy for the plane-wave-basis set (adjust!)
+  ISYM    =  0           # determines the way VASP treats symmetry; 2-uses symmetry, 0-recom. for MD (adjust!)
+  EDIFF   =  1E-7 eV     # global break condition for the electronic SC-loop (recom. for high precision)
+  LCHARG  =  .TRUE.      # determines whether CHGCAR and CHG are written (adjust! See ICHARG)
+  LWAVE   =  .FALSE.     # determines whether WAVECAR is written at end of run
+  SIGMA   =  0.04 eV     # width of the smearing (recom.: 0.03-0.05) 
+  ISMEAR  =  0           # how partial occupancies f_nk are set for orbitals (Recom. for semiconds and insulats)
+
+Ionic relaxation
+  IBRION  =  1           # whether to move ions; 2-ionic relaxtion (better for bad guesses)
+  NSW     =  25          # max number of steps for ionic relaxation (default, adjust! Eg 20, then loop)
+  ISIF    =  2           # stress is calculated, volume and shape cannot change
+  POTIM   =  0.4         # step width for ionic relaxation (default for IBRION=1,2,3)
+  EDIFFG  =  -1E-01      # stopping-criterion for ionic relaxation; neg: forces, pos: energy
+
+Performance optimization ! NCORE=#cores/(KPAR*NPAR); b_standard/_test nodes have 2x12 cores each (Broadwell Standard)
+  LPLANE  =  .TRUE.      # switches on the plane-wise data distribution in real space (recom. on LINUX clusters)
+  KPAR    =   4          # nbr of k-points is split into KPAR groups, treated in parallel N=(#cores)/KPAR cores per group (set by testing on 24&48 cores, 10 atoms, b_test, ara)
+  NCORE   =   6          # number of cores that, within each group (see KPAR), handle one orbital (set by testing on 24&48 cores, 10 atoms, b_test, ara)
+  LSCALU  =  .FALSE.     # switches on parallel LU decomosition (default, recom. for LINUX clusters)
+  NSIM    =  4           # nbr of bands taht are optimized simultaneously (default, recom. for LINUX clusters)
+  LREAL   =  A           # real space projection; A is slightly less accurate but faster 
