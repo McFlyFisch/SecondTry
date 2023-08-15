@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 
-#SBATCH --job-name=jXXXXcrb
-#SBATCH --partition=b_test
+#SBATCH --job-name=JOB_NAME
+#SBATCH --partition=PARTITION
 #SBATCH --exclusive
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=24
-#SBATCH --time=03:00:00
+#SBATCH --nodes=NODES
+#SBATCH --ntasks-per-node=NTASKS_PER_NODE
+#SBATCH --time=TIME
 #SBATCH --output=%x.o%j
 #SBATCH --mail-user=nico.fischer@uni-jena.de
 #SBATCH --mail-type=ALL
