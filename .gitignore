@@ -1,2 +1,5 @@
 # ignore all .txt files
 *.txt
+
+# ignore tokens
+*.token
